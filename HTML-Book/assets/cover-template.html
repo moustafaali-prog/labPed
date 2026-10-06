@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cover - Clinical Pediatric Nursing: A Comprehensive Practical Guide</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #1b2430; }
+  body { font-family: 'Segoe UI', Tahoma, Arial, sans-serif; }
+
+  /* ---------- the jacket ---------- */
+  .cover {
+    width: 210mm; height: 297mm; margin: 24px auto; position: relative; overflow: hidden;
+    background:
+      radial-gradient(120% 80% at 50% -10%, #1d4f80 0%, #123a63 42%, #0c2743 72%, #081c33 100%);
+    color: #f4f7fb; page-break-after: always; break-after: page;
+  }
+  /* woven texture */
+  .cover::before {
+    content: ''; position: absolute; inset: 0; opacity: .16; pointer-events: none;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,.05) 0 1px, transparent 1px 7px),
+      repeating-linear-gradient(-45deg, rgba(255,255,255,.04) 0 1px, transparent 1px 7px);
+  }
+  .frame {
+    position: absolute; inset: 11mm; border: .7mm solid #c9a227; pointer-events: none;
+  }
+  .frame::before {
+    content: ''; position: absolute; inset: 2.6mm; border: .25mm solid rgba(229,199,107,.55);
+  }
+  .corner { position: absolute; width: 7mm; height: 7mm; border: .35mm solid #e5c76b; }
+  .corner.tl { top: 8mm; left: 8mm; border-right: 0; border-bottom: 0; }
+  .corner.tr { top: 8mm; right: 8mm; border-left: 0; border-bottom: 0; }
+  .corner.bl { bottom: 8mm; left: 8mm; border-right: 0; border-top: 0; }
+  .corner.br { bottom: 8mm; right: 8mm; border-left: 0; border-top: 0; }
+
+  .plate { position: absolute; inset: 17mm 20mm; display: flex; flex-direction: column; }
+
+  /* ---------- head ---------- */
+  .inst { text-align: center; }
+  .inst .en { font-size: 10.5pt; letter-spacing: .30em; text-transform: uppercase; color: #e5c76b; font-weight: 600; }
+  .rule-gold { height: .35mm; background: linear-gradient(90deg, transparent, #c9a227 18%, #e5c76b 50%, #c9a227 82%, transparent); margin: 4mm 0 0; }
+
+  /* ---------- title ---------- */
+  .title { text-align: center; margin-top: 11mm; }
+  .eyebrow { font-size: 8.5pt; letter-spacing: .42em; text-transform: uppercase; color: #9fbdd8; }
+  .title h1 {
+    font-family: Georgia, 'Times New Roman', serif; font-weight: 700; color: #fff;
+    font-size: 35pt; line-height: 1.08; letter-spacing: .01em; margin: 3mm 0 0;
+    text-shadow: 0 .6mm 2mm rgba(0,0,0,.45);
+  }
+  .title h1 span { display: block; font-size: 19.5pt; letter-spacing: .06em; color: #eaf2fa; margin-top: 2mm; font-weight: 400; }
+  .diamond { display: flex; align-items: center; justify-content: center; gap: 3mm; margin: 4mm auto 3mm; width: 62%; }
+  .diamond i { flex: 1 1 auto; height: .3mm; background: linear-gradient(90deg, transparent, #c9a227); }
+  .diamond i:last-child { background: linear-gradient(90deg, #c9a227, transparent); }
+  .diamond b { width: 2.6mm; height: 2.6mm; border: .3mm solid #e5c76b; transform: rotate(45deg); }
+  .subtitle { font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 13.5pt; color: #dce9f6; letter-spacing: .04em; }
+
+  /* ---------- seal ---------- */
+  .seal {
+    margin: 6mm auto 0; width: 104mm; text-align: center; padding: 3mm 4mm;
+    border: .3mm solid rgba(229,199,107,.6); border-radius: 2mm; background: rgba(255,255,255,.05);
+  }
+  .seal .k { font-size: 9.5pt; letter-spacing: .26em; text-transform: uppercase; color: #e5c76b; }
+
+  /* ---------- facts ---------- */
+  .facts { margin-top: 7mm; display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 6mm; }
+  .fact { border-left: .5mm solid #c9a227; padding: .6mm 0 .6mm 2.6mm; }
+  .fact .k { font-size: 7.6pt; letter-spacing: .2em; text-transform: uppercase; color: #9fbdd8; }
+  .fact .v { font-size: 9.6pt; color: #f4f7fb; margin-top: .4mm; }
+  .fact.wide { grid-column: 1 / -1; }
+
+  /* ---------- authors ---------- */
+  .authors { margin-top: auto; }
+  .authors .single { max-width: 118mm; margin: 0 auto; }
+  .authors .slot .role { font-size: 8.6pt; letter-spacing: .22em; text-transform: uppercase; color: #e5c76b; text-align: center; }
+  .authors .slot .nm { font-family: Georgia, 'Times New Roman', serif; font-size: 12.5pt; color: #fff; margin-top: 1.2mm;
+                      border-bottom: .25mm solid rgba(201,162,39,.65); padding-bottom: 1mm; min-height: 8mm; text-align: center; }
+  .authors .slot .nm.blank { color: transparent; }
+
+  /* ---------- foot ---------- */
+  .foot { margin-top: 4mm; text-align: center; }
+  .foot .disc { font-size: 7.4pt; color: #a8c1d6; line-height: 1.45; }
+  .foot .line { font-size: 8.4pt; letter-spacing: .22em; text-transform: uppercase; color: #e5c76b; margin-top: 2mm; }
+  .foot .yr { font-size: 8pt; color: #9fbdd8; letter-spacing: .18em; margin-top: 1mm; }
+
+  @page { size: A4; margin: 0; }
+  @media print {
+    html, body { background: #fff; }
+    .cover { margin: 0; box-shadow: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<section class="cover">
+  <div class="frame"></div>
+  <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+
+  <div class="plate">
+    <div class="inst">
+      <div class="en">{{INSTITUTION}}</div>
+    </div>
+    <div class="rule-gold"></div>
+
+    <div class="title">
+      <div class="eyebrow">{{EYEBROW}}</div>
+      <h1>{{TITLE_MAIN}}<span>{{TITLE_SUB}}</span></h1>
+      <div class="diamond"><i></i><b></b><i></i></div>
+      <div class="subtitle">{{TITLE_LINE3}}</div>
+    </div>
+
+    <div class="seal">
+      <div class="k">{{SEAL_K}}</div>
+    </div>
+
+    <div class="facts">
+      <div class="fact"><div class="k">{{K_EDITION}}</div><div class="v">{{EDITION}}</div></div>
+      <div class="fact"><div class="k">{{K_COURSE}}</div><div class="v">{{COURSE}}</div></div>
+      <div class="fact"><div class="k">{{K_LANGUAGE}}</div><div class="v">{{LANGUAGE}}</div></div>
+      <div class="fact"><div class="k">{{K_USE}}</div><div class="v">{{USE}}</div></div>
+      <div class="fact wide"><div class="k">{{K_LEARNERS}}</div><div class="v">{{LEARNERS}}</div></div>
+    </div>
+
+    <div class="authors">
+      <div class="single">{{AUTHORS_BLOCK}}</div>
+    </div>
+
+    <div class="foot">
+      <div class="disc">{{DISCLAIMER}}</div>
+      <div class="line">{{FOOT_LINE}}</div>
+      <div class="yr">{{YEAR}}</div>
+    </div>
+  </div>
+</section>
+</body>
+</html>

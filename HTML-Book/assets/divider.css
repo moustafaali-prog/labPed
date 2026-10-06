@@ -1,0 +1,43 @@
+/* ============================================================
+   Chapter dividers - handbook style
+   Clinical Pediatric Nursing : practical ward & laboratory training
+   dv-open  = part banner that carries the chapter h1
+   dv-close = chapter end plate
+   ============================================================ */
+
+/* ---- shared ornament: hairline - diamond - hairline ---- */
+.dv { text-align: center; }
+.dv-orn { display: flex; align-items: center; justify-content: center; gap: 9px; margin: 10px 0; }
+.dv-orn::before, .dv-orn::after { content: ''; height: 1px; flex: 1 1 auto; max-width: 190px; }
+.dv-orn::before { background: linear-gradient(90deg, rgba(176,141,87,0), #b08d57); }
+.dv-orn::after { background: linear-gradient(90deg, #b08d57, rgba(176,141,87,0)); }
+.dv-diamond { width: 7px; height: 7px; border: 1px solid #b08d57; transform: rotate(45deg); flex: 0 0 auto; }
+.dv-diamond.solid { background: #b08d57; }
+
+/* ---- chapter opener ---- */
+.dv-open { margin: 0 0 24px; padding: 22px 24px 18px; border-top: 3px double #0f3057; border-bottom: 1px solid #dfe6ee; background: linear-gradient(180deg, #fafcfe, #fff); }
+.dv-part { font-size: 11px; font-weight: 700; letter-spacing: .24em; text-transform: uppercase; color: #8a6a3b; margin: 0 0 8px; }
+.dv-kind { font-size: 12px; font-weight: 700; letter-spacing: .36em; text-transform: uppercase; color: #13518c; margin: 6px 0 2px; }
+.dv-open h1 { font-family: Georgia, 'Times New Roman', serif; font-size: 29px; line-height: 1.22; font-weight: 700; color: #0f3057; border: 0; padding: 0; margin: 4px 0 10px; }
+.dv-guide { font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase; color: #5b6b7c; margin: 0; }
+
+/* ---- chapter end plate ---- */
+.dv-close { margin: 26px 0 10px; padding: 14px 24px 16px; border-top: 1px solid #dfe6ee; border-bottom: 3px double #0f3057; background: linear-gradient(180deg, #fff, #f7fafd); break-inside: avoid; page-break-inside: avoid; }
+.dv-end { font-size: 11px; font-weight: 700; letter-spacing: .3em; text-transform: uppercase; color: #8a6a3b; margin: 0 0 6px; }
+.dv-ctitle { font-family: Georgia, 'Times New Roman', serif; font-size: 16px; color: #0f3057; margin: 0 0 8px; }
+.dv-next { font-size: 11.5px; color: #5b6b7c; margin: 0; }
+.dv-next b { color: #13518c; font-weight: 700; }
+
+@media print {
+  .dv-open { padding: 9px 10px; margin-bottom: 10px; border-top-width: 2px; }
+  .dv-open h1 { font-size: 18px; margin: 2px 0 5px; }
+  .dv-part, .dv-kind, .dv-guide { font-size: 8.5px; letter-spacing: .22em; }
+  .dv-orn { margin: 5px 0; gap: 6px; }
+  .dv-orn::before, .dv-orn::after { max-width: 120px; }
+  .dv-diamond { width: 5px; height: 5px; }
+  .dv-close { padding: 7px 10px 8px; margin: 10px 0 4px; border-bottom-width: 2px; }
+  .dv-end { font-size: 8.5px; }
+  .dv-ctitle { font-size: 12px; margin-bottom: 4px; }
+  .dv-next { font-size: 9px; }
+  .dv-open, .dv-close { break-inside: avoid; page-break-inside: avoid; break-after: avoid; page-break-after: avoid; }
+}
